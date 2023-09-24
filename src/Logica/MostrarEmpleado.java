@@ -16,6 +16,8 @@ public class MostrarEmpleado {
             System.out.println("Nombre: " + empleado.getNombreCompleto());
             System.out.println("Edad: " + empleado.getEdad());
             System.out.println("DNI: " + empleado.getDni());
+            System.out.println("Id: " + empleado.getId());
+
 
             // Verificar si el empleado es un Programador
             if (empleado instanceof Programador programador) {

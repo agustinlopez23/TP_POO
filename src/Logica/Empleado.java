@@ -1,11 +1,15 @@
 package Logica;
 
 public class Empleado {
-    
+     // Atributo estático para llevar el conteo de IDs
+    private static int contadorId = 1;
     // Atributos protegidos que describen un empleado
+    private int id;
     protected String nombreCompleto;
     protected int edad;
     protected int dni;
+
+   
     protected double horasTrabajadas;
     protected double pagoPorHora;
 
@@ -17,6 +21,8 @@ public class Empleado {
     // Constructor con parámetros
     public Empleado(String nombreCompleto, int edad, int dni, 
             double horasTrabajadas, double pagoPorHora) {
+        // Incrementa el contador de ID y lo asigna al atributo id
+        this.id = contadorId++;
         this.nombreCompleto = nombreCompleto;
         this.edad = edad;
         this.dni = dni;
@@ -36,6 +42,10 @@ public class Empleado {
 
     public int getEdad() {
         return edad;
+    }
+
+  public int getId() {
+        return id;
     }
 
     public void setEdad(int edad) {
