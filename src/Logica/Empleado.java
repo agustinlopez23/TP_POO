@@ -16,6 +16,7 @@ public abstract class Empleado {
     // Constructor por defecto
     public Empleado() {
         // No hace nada, los atributos se inicializan con valores predeterminados
+        this.id = contadorId++;
     }
 
     // Constructor con parámetros
