@@ -36,47 +36,45 @@ public class CrearEmpleado {
          if (!nombreCompleto.matches("^[a-zA-Z\\s]+$")) {
                 throw new IllegalArgumentException("El nombre debe contener solo letras y espacios.");
             }
-         
         nuevoEmpleado.setNombreCompleto(nombreCompleto);
 
-        System.out.print("- Edad: ");
         
+        System.out.print("- Edad: ");
         //crea la variable de edad como numero
         int edad;
-
         //valida que la edad sea un numero y sino cathea el error
         try {
             edad = Integer.parseInt(scanner.next());
         } catch (NumberFormatException e) {
-            System.out.println("Error: La edad debe ser un número.");
-            return;
+            throw new IllegalArgumentException("La edad debe ser un número");
         }
         nuevoEmpleado.setEdad(edad);
 
+        
         System.out.print("- DNI: ");
         String dniString = scanner.next();
 
         // Valida que el dni tenga solo numeros
         if (!dniString.matches("^\\d+$")) {
-            System.out.println("Error: El DNI debe contener solo números.");
-            return;
+            throw new IllegalArgumentException("El DNI debe contener solo números.");
         }
         
         int dni = Integer.parseInt(dniString);
         nuevoEmpleado.setDni(dni);
 
+        
         System.out.print("- Pago por hora: ");
         double pagoPorHora;
 
         try {
             pagoPorHora = Double.parseDouble(scanner.next());
         }  catch (NumberFormatException e) {
-            System.out.println("Error: El pago por hora debe ser un número.");
-            return;
+            throw new IllegalArgumentException("El pago por hora debe ser un número");
+
         }
-        
         nuevoEmpleado.setPagoPorHora(pagoPorHora);
 
+        
         // Si es un Programador, solicitar el lenguaje de programación
         if (nuevoEmpleado instanceof Programador programador) {
             System.out.print("- Lenguaje: ");
