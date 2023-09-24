@@ -1,6 +1,6 @@
 package Logica;
 
-public class Diseniador extends Empleado {
+public class Diseniador extends Empleado implements IDiseniador {
 
     // Constructor por defecto
     public Diseniador() {
@@ -16,4 +16,19 @@ public class Diseniador extends Empleado {
     }
 
     // No es necesario añadir más métodos o atributos en esta clase, ya que hereda de Empleado
+
+    @Override
+    protected void Saludar() {
+      System.out.println("Hola soy un Empleado y estoy saludando");
+    }
+
+    @Override
+    public void diseniar() {
+        System.out.println("Hola soy un diseniador y estoy diseniando");
+    }
+
+    
+
+    
+    
 }

@@ -1,10 +1,10 @@
 package Logica;
 
-public class Empleado {
+public abstract class Empleado {
      // Atributo estático para llevar el conteo de IDs
-    private static int contadorId = 1;
+    protected static int contadorId = 1;
     // Atributos protegidos que describen un empleado
-    private int id;
+    protected int id;
     protected String nombreCompleto;
     protected int edad;
     protected int dni;
@@ -75,4 +75,6 @@ public class Empleado {
     public void setPagoPorHora(double pagoPorHora) {
         this.pagoPorHora = pagoPorHora;
     }
+    
+   protected abstract void Saludar();
 }

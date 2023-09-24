@@ -1,6 +1,6 @@
 package Logica;
 
-public class Programador extends Empleado {
+public class Programador extends Empleado implements IProgramador {
     
     private String lenguaje;
 // Constructor por defecto
@@ -26,6 +26,19 @@ public class Programador extends Empleado {
     public void setLenguaje(String lenguaje) {
         this.lenguaje = lenguaje;
     }
+
+    @Override
+    protected void Saludar() {
+       System.out.println("Hola soy un Empleado y estoy saludando");
+    }
+
+    @Override
+    public void Programar() {
+        System.out.println("Hola soy un programador y estoy programando");
+    }
+
+    
+  
 
     
 }

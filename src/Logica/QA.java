@@ -1,6 +1,6 @@
 package Logica;
 
-public class QA extends Empleado {
+public class QA extends Empleado implements IQa {
 
     // Constructor por defecto
     public QA() {
@@ -14,4 +14,17 @@ public class QA extends Empleado {
         // Llamada al constructor de la clase base (Empleado) con los parámetros proporcionados
         super(nombreCompleto, edad, dni, horasTrabajadas, pagoPorHora);
     }
+
+    @Override
+    protected void Saludar() {
+       System.out.println("Hola soy un Empleado y estoy saludando");
+    }
+
+    @Override
+    public void testear() {
+        System.out.println("Hola soy un QA, y estoy testeando");
+    }
+
+   
+    
 }
