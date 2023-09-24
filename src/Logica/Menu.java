@@ -13,7 +13,8 @@ public class Menu {
         System.out.println("2. Listar empleados");
         System.out.println("3. Buscar empleado por dni");
         System.out.println("4. Calcular salario");
-        System.out.println("5. Salir");
+        System.out.println("5. Exportar lista de empleados");
+        System.out.println("6. Salir");
         System.out.println("---------------------------------");
         System.out.print("Ingresa tu opción: ");
         

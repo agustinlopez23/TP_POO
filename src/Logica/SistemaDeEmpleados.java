@@ -14,12 +14,17 @@ public class SistemaDeEmpleados {
         // Crear una lista para almacenar empleados
         List<Empleado> lista = new ArrayList<>();
         
+        ExportarEmpleado exportarEmpleado = new ExportarEmpleado("lista-empleados.txt");
+
+        
         // Crear instancias de las clases relacionadas
         CrearEmpleado crearEmpleado = new CrearEmpleado();
         MostrarEmpleado mostrarEmpleado = new MostrarEmpleado();
         BuscarEmpleado buscarEmpleado = new BuscarEmpleado();
         CalcularSalario calcularSalario = new CalcularSalario();
         Menu menu = new Menu();
+        
+        
         
         // Mostrar un mensaje de inicio
         System.out.println("Sistema de empleados");
@@ -36,6 +41,10 @@ public class SistemaDeEmpleados {
                 case "3" -> buscarEmpleado.buscar(lista, scanner);
                 case "4" -> calcularSalario.calcular(lista, scanner);
                 case "5" -> {
+                    exportarEmpleado.exportar(lista);
+                    System.out.println("Datos exportados correctamente.");
+                }
+                case "6" -> {
                     // Mostrar mensaje de salida y cerrar el Scanner
                     System.out.println("Saliendo...");
                     scanner.close();
