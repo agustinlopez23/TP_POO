@@ -26,17 +26,56 @@ public class CrearEmpleado {
     // Método para crear un empleado específico según su tipo
     private void crearEmpleado(List<Empleado> lista, Scanner scanner,
             Empleado nuevoEmpleado) {
+        try{
+            //arregla el error de la primer linea
+            scanner.nextLine();
+        
         System.out.print("- Nombre Completo: ");
-        nuevoEmpleado.setNombreCompleto(scanner.next());
+        String nombreCompleto = scanner.nextLine();
+
+         if (!nombreCompleto.matches("^[a-zA-Z\\s]+$")) {
+                throw new IllegalArgumentException("El nombre debe contener solo letras y espacios.");
+            }
+         
+        nuevoEmpleado.setNombreCompleto(nombreCompleto);
 
         System.out.print("- Edad: ");
-        nuevoEmpleado.setEdad(scanner.nextInt());
+        
+        //crea la variable de edad como numero
+        int edad;
+
+        //valida que la edad sea un numero y sino cathea el error
+        try {
+            edad = Integer.parseInt(scanner.next());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: La edad debe ser un número.");
+            return;
+        }
+        nuevoEmpleado.setEdad(edad);
 
         System.out.print("- DNI: ");
-        nuevoEmpleado.setDni(scanner.nextInt());
+        String dniString = scanner.next();
+
+        // Valida que el dni tenga solo numeros
+        if (!dniString.matches("^\\d+$")) {
+            System.out.println("Error: El DNI debe contener solo números.");
+            return;
+        }
+        
+        int dni = Integer.parseInt(dniString);
+        nuevoEmpleado.setDni(dni);
 
         System.out.print("- Pago por hora: ");
-        nuevoEmpleado.setPagoPorHora(scanner.nextDouble());
+        double pagoPorHora;
+
+        try {
+            pagoPorHora = Double.parseDouble(scanner.next());
+        }  catch (NumberFormatException e) {
+            System.out.println("Error: El pago por hora debe ser un número.");
+            return;
+        }
+        
+        nuevoEmpleado.setPagoPorHora(pagoPorHora);
 
         // Si es un Programador, solicitar el lenguaje de programación
         if (nuevoEmpleado instanceof Programador programador) {
@@ -48,5 +87,10 @@ public class CrearEmpleado {
         lista.add(nuevoEmpleado);
 
         System.out.println("Empleado agregado correctamente.");
+        
+        
+    }catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

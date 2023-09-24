@@ -14,6 +14,7 @@ public class SistemaDeEmpleados {
         // Crear una lista para almacenar empleados
         List<Empleado> lista = new ArrayList<>();
         
+        //Inicializa la clase con ese nombre del archivo a crear
         ExportarEmpleado exportarEmpleado = new ExportarEmpleado("lista-empleados.txt");
 
         

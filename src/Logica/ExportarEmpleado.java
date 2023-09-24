@@ -10,24 +10,27 @@ public class ExportarEmpleado {
         this.nombreArchivo = nombreArchivo;
     }
 
-    // Export the list of Empleado objects to a text file
+    // escribe la ArrayList de empledos en el archivo
     public void exportar(List<Empleado> empleados) {
-        try (PrintWriter writer = new PrintWriter(nombreArchivo)) {
+        // Manejo de errores para el FileWriter 
+        try (FileWriter fw = new FileWriter(nombreArchivo)) {
             for (Empleado empleado : empleados) {
-                writer.println("ID: " + empleado.getId());
-                writer.println("Nombre Completo: " + empleado.getNombreCompleto());
-                writer.println("Edad: " + empleado.getEdad());
-                writer.println("DNI: " + empleado.getDni());
-                writer.println("Horas Trabajadas: " + empleado.getHorasTrabajadas());
-                writer.println("Pago por Hora: " + empleado.getPagoPorHora());
-                if (empleado instanceof Programador programador) {
-                    writer.println("Lenguaje: " + programador.getLenguaje());
-                }
-                writer.println(); // Add an empty line to separate employee records
+                // concatena los datos en un string y los escribe en el archivo
+                String empleadoData = formatoEmpleadoData(empleado);
+                fw.write(empleadoData);
+                fw.write(System.lineSeparator()); //pone el siguiente empleado en otra linea
             }
-            System.out.println("Data exported to " + nombreArchivo);
+            System.out.println("Datos exportados correctamente a " + nombreArchivo);
         } catch (IOException e) {
-            System.err.println("Error exporting data: " + e.getMessage());
+            System.err.println("Error al exportar datos: " + e.getMessage());
         }
+    }
+    
+        // crear el string con los datos para excribir
+        private String formatoEmpleadoData(Empleado empleado) {
+        return "ID: " + empleado.getId() + " | Nombre: " + empleado.getNombreCompleto()
+             + " | Edad: " + empleado.getEdad() + " | DNI: " + empleado.getDni()
+             + " | Horas Trabajadas: " + empleado.getHorasTrabajadas()
+             + " | Pago por Hora: " + empleado.getPagoPorHora();
     }
 }
