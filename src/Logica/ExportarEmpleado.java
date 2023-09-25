@@ -28,9 +28,9 @@ public class ExportarEmpleado {
     
         // crear el string con los datos para excribir
         private String formatoEmpleadoData(Empleado empleado) {
-        return "ID: " + empleado.getId() + " | Nombre: " + empleado.getNombreCompleto()
-             + " | Edad: " + empleado.getEdad() + " | DNI: " + empleado.getDni()
-             + " | Horas Trabajadas: " + empleado.getHorasTrabajadas()
-             + " | Pago por Hora: " + empleado.getPagoPorHora();
+        return "ID: " + empleado.getId() + "\n | Nombre: " + empleado.getNombreCompleto()
+             + "\n | Edad: " + empleado.getEdad() + "\n | DNI: " + empleado.getDni()
+             + "\n | Horas Trabajadas: " + empleado.getHorasTrabajadas()
+             + "\n | Pago por Hora: \n" + empleado.getPagoPorHora();
     }
 }
