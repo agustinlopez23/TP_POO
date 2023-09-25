@@ -31,6 +31,7 @@ public class ExportarEmpleado {
         return "ID: " + empleado.getId() + "\n | Nombre: " + empleado.getNombreCompleto()
              + "\n | Edad: " + empleado.getEdad() + "\n | DNI: " + empleado.getDni()
              + "\n | Horas Trabajadas: " + empleado.getHorasTrabajadas()
-             + "\n | Pago por Hora: \n" + empleado.getPagoPorHora();
+             + "\n | Pago por Hora: " + empleado.getPagoPorHora()
+             + "\n";
     }
 }

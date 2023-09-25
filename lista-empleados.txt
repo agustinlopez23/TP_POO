@@ -1,0 +1,14 @@
+ID: 1
+ | Nombre: lisandro vazquez
+ | Edad: 23
+ | DNI: 428467393
+ | Horas Trabajadas: 0.0
+ | Pago por Hora: 6.4
+
+ID: 2
+ | Nombre: juan perez
+ | Edad: 45
+ | DNI: 5783432
+ | Horas Trabajadas: 0.0
+ | Pago por Hora: 8.0
+
